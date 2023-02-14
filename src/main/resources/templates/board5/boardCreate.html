@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head> </head>
+
+<body>
+    <h1>- 게시글 작성 -</h1>
+    <form action="/board5/boardCreate" method="post">
+        <h3>작성자 : [[${session.user.userId}]]</h3>
+        <h3>글 제목</h3>
+        <textarea name="boardTitle" placeholder="글 제목은 식사하신 메뉴로 해주세요^^"style="width:100%;" /></textarea>
+        <h3>이 식당을 동료에게 추천하시겠습니까?</h3>
+        <input type = "radio" name = "like" checked th:value="on"> 👍<br />
+        <input type = "radio" name = "like" th:value="off"> 👎<br />
+        <h3>식사한 날짜 및 시간</h3>
+        <textarea name="boardDate" placeholder="ex. 2022.10.28 금요일 점심"  style="width:100%" /></textarea>
+        <h3>글 내용</h3>
+        <textarea name="boardContent" style="width:100%; height:200px" /></textarea>
+        <input type="submit" value="Write" />
+
+    </form>
+</body>
+
+</html>

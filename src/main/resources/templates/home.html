@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <style>
+        .section1{
+            width: 100%;
+            display: block;
+        }
+        .food {
+            margin: 1rem;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <center><h1>매일 점심이 즐거운 새싹에 오신 걸 환영합니다</h1><br />
+    <h3>인생 최대의 고민 점심메뉴를 함께 고민해요^^</h3></center>
+    <th:block th:if ="${session.user} == null">
+        <center><h3><a href = "/user/join">Create Account</h3></a></center>
+        <center><h2><a href = "/user/login">Log in</h2></a></center>
+    </th:block>
+    <th:block th:unless="${session.user} == null">
+        <a href ="/user/logout">log out</a>|<span>[[${session.user.userName}]]님 환영합니다.</span><br/>
+        <a href ="/user/withdraw">회원탈퇴</a>|<span>😢</span><br/>
+        <div class="section1">
+            <div class="food">
+                <a href ="/board1/boardList?category=1"><img src="/123.jpeg" style="width: 200px;"><br />국밥집</a>
+            </div>
+            <div class="food">
+                <a href ="/board2/boardList"><img src="/2.jpeg" style="width: 200px;"><br />두부요리 전문점</a>
+            </div>
+            <div class="food">
+                <a href ="/board3/boardList"><img src="/3.jpg" style="width: 200px;"><br />중화요리</a>
+            </div>
+        </div>
+        <div>  
+            <div class="food">
+                <a href ="/board4/boardList"><img src="/4.jpg" style="width: 200px;"><br />샌드위치 전문점</a>
+            </div>
+            <div class="food">
+                <a href ="/board5/boardList"><img src="/5.jpg" style="width: 200px;"><br />돈까스 전문점</a>
+            </div>
+            <div class="food">
+                <a href ="/board6/boardList"><img src="/6.jpg" style="width: 200px;"><br />오기니리&규동 전문점</a>
+            </div>
+        </div>
+    </div>
+    </th:block> 
+   
+    </th:block> 
+
+</body>
+
+</html>

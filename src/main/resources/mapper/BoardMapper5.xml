@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.solproject.miniproject.mapper.BoardMapper5">
+        <select id="boardList" resultType="com.example.solproject.miniproject.model.Board5">
+            select * from board5
+        </select>
+        <insert id="boardCreate" parameterType="com.example.solproject.miniproject.model.Board5">
+            insert into board5 values( NULL , #{boardTitle},#{boardContent},#{boardWriter},#{like},#{boardDate},now())
+        </insert>
+        <update id="boardUpdate" parameterType="com.example.solproject.miniproject.model.Board5">
+            update board5
+            set boardTitle=#{boardTitle}, boardContent=#{boardContent}, boardDate=#{boardDate}
+            where boardNo=#{boardNo}
+        </update>
+        <delete id="boardRemove" parameterType="int">
+            delete from board5 where boardNo=#{boardNo}
+        </delete>
+</mapper>

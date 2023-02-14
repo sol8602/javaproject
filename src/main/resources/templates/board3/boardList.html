@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head> </head>
+<!--th:each를 사용해서 게시글의 정보를 나타내는 페이지로 수정해보자.-->
+
+<body>
+    <table border="1">
+        <tr>
+            <td>No.</td>
+            <td>게시글제목</td>
+            <td>식사한 날짜및시간</td>
+            <td>추천여부</td>
+            <td>작성자</td>
+        </tr>
+        <th:block th:if="${boardList}!=null">
+            <tr th:each="board3:${boardList}">
+                <td th:text="${board3.boardNo}"></td>
+                <td>
+                    <a th:href="@{/board3/boardDetail(boardNo=${board3.boardNo})}">[[${board3.boardTitle}]]</a>       
+                </td>
+                <td>
+                    <a>[[${board3.boardDate}]]</a>
+                </td>
+                <th:block th:switch="${board3.like}">
+                    <td th:case="on">
+                        👍
+                    </td>
+                    <td th:case="off">
+                        👎
+                    </td>
+                </th:block>
+
+                <td th:text="${board3.boardWriter}"></td>
+            </tr>
+        </th:block>
+        <th:block th:if="${boardList.size} == 0">
+            <tr>
+                <td colspan="3">게시글이 존재 하지 않습니다.</td>
+            </tr>
+        </th:block>
+    </table>
+    <a href="/board3/boardCreate">글쓰기</a>
+    <a href="/">Home으로 돌아가기</a>
+</body>
+
+</html>

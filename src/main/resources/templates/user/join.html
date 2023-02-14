@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head> </head>
+
+<body>
+    <!--계정 생성 단계
+    아이디,비밀번호,이름,부서,선호하는 음식 취향-->
+    <h1>- Creat Account -</h1>
+    <form "/user/join" method="post">
+        <input type="text" placeholder="id" name="userId"/>
+        <input type="text" placeholder="password" name="userPw"/>
+        <input type="text" placeholder="이름" name="userName"/>
+        <input type="text" placeholder="부서명" name="userDept"/>
+        <input type="text" placeholder="좋아하는 음식" name="userFoodPref"/>
+        <input type="submit" value="create account"/>
+
+    </form>
+</body>
+
+</html>

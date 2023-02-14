@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head> </head>
+
+<body>
+    <h1>- 즐거운 고민속으로 들어가기위한 첫걸음 -</h1>
+    <form "/user/login" method="post">
+        <input type="text" placeholder="id" name="userId"/>
+        <input type="text" placeholder="password" name="userPw"/>
+        <button><input type="submit" value="Log in"/></button>
+    </form>
+    <th:block th:switch="${result2}">
+        <h1 th:case="on">성공적으로 로그인 되었습니다.</h1>
+        <h1 th:case="off">비밀번호를 확인 해주세요.</h1>
+        <h1 th:case="idCheck">아이디를 확인 하세요.</h1>
+    </th:block>
+</body>
+
+</html>
